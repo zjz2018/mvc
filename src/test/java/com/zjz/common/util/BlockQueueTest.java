@@ -1,7 +1,8 @@
 package com.zjz.common.util;
 
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.Semaphore;
 
 /**
  * 阻塞队列
@@ -10,10 +11,10 @@ import java.util.concurrent.SynchronousQueue;
  * 
  */
 public class BlockQueueTest {
-
-	public static void main(String[] args) {
-		final BlockingQueue<Integer> queue = new SynchronousQueue();
-		// final BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(4);
+	
+	public static void main(String[] args) throws InterruptedException {
+		final BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
+		final Semaphore semaphore = new Semaphore(2);
 		new Thread(new Runnable() {
 			public void run() {
 				for (int i = 0; i < 16; i++) {// 放
@@ -26,22 +27,22 @@ public class BlockQueueTest {
 				}
 			}
 		}).start();
-
-		for (int i = 0; i < 4; i++) {// 取
+		
+		for (int i = 0; i < 16; i++) {// 取
 			new Thread(new Runnable() {
 				public void run() {
-					try {
-						while (true) {
-							Thread.sleep(1000);
-							System.out.println(Thread.currentThread().getName() + " take num:" + queue.take());
-						}
+					try { 
+						semaphore.acquire();
+						Thread.sleep(1000);
+						System.out.println(Thread.currentThread().getName() + " take num:" + queue.take());
+						semaphore.release();
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 				}
 			}).start();
 		}
-
+		
 	}
-
+	
 }
