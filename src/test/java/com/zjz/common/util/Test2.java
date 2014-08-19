@@ -21,6 +21,7 @@ public class Test2 {
 		}
 		for (int i = 0; i < 10; i++) {
 			new Thread(new Runnable() {
+				@Override
 				public void run() {
 					String output;
 					try {

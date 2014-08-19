@@ -19,6 +19,7 @@ public class TestCase {
 	public void testThread() {
 		final TestCase.Business b = new TestCase.Business();
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					for (int i = 0; i <= 5; i++) {
@@ -30,6 +31,7 @@ public class TestCase {
 			}
 		}, "sub").start();
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					for (int i = 0; i < 5; i++) {
@@ -108,6 +110,7 @@ public class TestCase {
 	public void testMing() {
 		final TestCase.Ming ming = new TestCase.Ming();
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					for (int i = 0; i < 5; i++) {
@@ -119,6 +122,7 @@ public class TestCase {
 			}
 		}).start();
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					for (int i = 0; i < 5; i++) {
@@ -174,6 +178,7 @@ public class TestCase {
 	public void testFood() {
 		final TestCase.Product product = new TestCase.Product();
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				String[] a = new String[] { "aa", "bb", "cc", "dd", "ee" };
 				for (String element : a) {
@@ -182,6 +187,7 @@ public class TestCase {
 			}
 		}).start();
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				product.take();
 			}

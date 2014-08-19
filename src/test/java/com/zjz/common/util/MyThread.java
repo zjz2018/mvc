@@ -3,6 +3,7 @@ package com.zjz.common.util;
 public class MyThread implements Runnable {
 	private byte[] lock = new byte[0];
 
+	@Override
 	public void run() {
 		synchronized (lock) {
 			for (int i = 0; i < 20; i++) {

@@ -7,6 +7,7 @@ public class AtmoicTest {
 
 	public static void main(String[] args) {
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				for (int i = 0; i < 50; i++) {
 					try {
@@ -20,6 +21,7 @@ public class AtmoicTest {
 			}
 		}).start();
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				for (int i = 0; i < 50; i++) {
 					try {

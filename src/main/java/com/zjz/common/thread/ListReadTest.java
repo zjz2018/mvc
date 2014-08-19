@@ -1,4 +1,4 @@
-package com.zjz.basic.thread;
+package com.zjz.common.thread;
 
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -24,15 +24,16 @@ public class ListReadTest {
 		for (String str : lists) {
 			queue.put(str);// 填充队列
 		}
+		Long start=System.currentTimeMillis();
 		int nums = Runtime.getRuntime().availableProcessors();// 当前CPU线程数
 		ExecutorService executor = Executors.newFixedThreadPool(nums);
 		ListReadTest main = new ListReadTest();
-		for (int i = 0; i < nums; i++) {
+		for (int i = 0; i < lists.size(); i++) {
 			executor.execute(main.new Worker(queue, latch));
 		}
 		latch.await();// 阻塞
 		executor.shutdown();
-		System.out.println("over");
+		System.out.println(System.currentTimeMillis()-start);
 	}
 	
 	class Worker implements Runnable {
@@ -44,9 +45,11 @@ public class ListReadTest {
 			this.latch = latch;
 		}
 		
+		@Override
 		public void run() {
 			try {
-				while (!queue.isEmpty()) {// 循环队列
+				if (!queue.isEmpty()) {// 循环队列
+					Thread.sleep(1000);
 					System.out.println(Thread.currentThread().getName() + ":" + queue.take().toString());// 读取数据
 					latch.countDown();
 				}

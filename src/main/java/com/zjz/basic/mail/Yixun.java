@@ -20,6 +20,7 @@ public class Yixun implements Runnable {
 		System.out.println("线程开始");
 	}
 	
+	@Override
 	public void run() {
 		// 南方黑芝麻糊
 		String site1 = "http://dwz.cn/mH4Bl";
@@ -56,7 +57,8 @@ public class Yixun implements Runnable {
 						}
 					}
 				}
-				Thread.currentThread().sleep(60000);
+				Thread.currentThread();
+				Thread.sleep(60000);
 			}
 			
 		} catch (MalformedURLException e) {

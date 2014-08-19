@@ -9,6 +9,7 @@ public class UserModelServiceImpl implements UserModelService {
 	@Autowired
 	private UserModelDao userModelDao;
 
+	@Override
 	public UserModel getUserModelById(Integer id) {
 		UserModel m = userModelDao.getUserModelById(id);
 		return m;

@@ -1,6 +1,5 @@
-package com.zjz.basic.thread;
+package com.zjz.common.thread;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
@@ -90,6 +89,7 @@ public class SemaphoreTest {
 		// 准备10个资源的资源池
 		final Pool aPool = new Pool(10);
 		Runnable worker = new Runnable() {
+			@Override
 			public void run() {
 				String resource = null;
 				try {
@@ -100,6 +100,7 @@ public class SemaphoreTest {
 					Thread.sleep(500);
 					System.out.println("I finished on " + resource);
 				} catch (InterruptedException ex) {
+					ex.printStackTrace();
 				}
 				// 归还resource
 				aPool.put1(resource);

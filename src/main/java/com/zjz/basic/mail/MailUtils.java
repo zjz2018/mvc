@@ -79,7 +79,7 @@ public class MailUtils {
 	public static void main(String[] args) {
 		MailUtils mail = new MailUtils();
 		String site = "http://searchex.yixun.com/html?path=706019t706023&attr=55e3506&area=1&sort=0&show=0&size=40&pf=0&as=0&charset=utf-8&YTAG=3.706023241101&sf=1#list";
-		mail.sendHTML("测试", "<p><a href='"+site+"'>易迅抢购</a></p>");
+		MailUtils.sendHTML("测试", "<p><a href='"+site+"'>易迅抢购</a></p>");
 		System.out.println("over");
 	}
 }

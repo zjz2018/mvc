@@ -1,10 +1,12 @@
-package com.zjz.basic;
+package com.zjz.common.basic;
 
 /**
  * 继承类测试
  * 
- * 静态代码块内容先执行，接着执行父类非静态代码块和构造方法，然后执行子类非静态代码块和构造方法
- * 父类中的成员变量被隐藏,方法被覆盖
+ * 1.静态代码块内容先执行
+ * 2.接着执行父类非静态代码块和构造方法，
+ * 3.然后执行子类非静态代码块和构造方法
+ * 4.父类中的成员变量被隐藏,方法被覆盖
  * 
  * @author ZJZ
  * 
@@ -34,8 +36,9 @@ public class ExtendClass {
 			System.out.println(str);
 		}
 		
+		@Override
 		public void method() {
-			super.method();
+			super.method();//str为父类中的变量
 			System.out.println(str + ":" + "child method");
 		}
 		

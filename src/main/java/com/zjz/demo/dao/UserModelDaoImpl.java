@@ -5,6 +5,7 @@ import com.zjz.demo.model.UserModel;
 public class UserModelDaoImpl implements UserModelDao {
 	
 
+	@Override
 	public UserModel getUserModelById(Integer id) {
 		UserModel model=new UserModel();
 		model.setUsername("kk");

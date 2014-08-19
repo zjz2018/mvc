@@ -22,6 +22,7 @@ public class ThreadLocalTest {
 		final ThreadLocalTest tt = new ThreadLocalTest();
 		for (int i = 0; i < 5; i++) {
 			new Thread(new Runnable() {
+				@Override
 				public void run() {
 					Integer it = new Random().nextInt(50);
 					Man man = tt.getMan();

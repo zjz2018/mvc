@@ -16,6 +16,7 @@ public class BlockQueueTest {
 		final BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
 		final Semaphore semaphore = new Semaphore(2);
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				for (int i = 0; i < 16; i++) {// 放
 					try {
@@ -30,6 +31,7 @@ public class BlockQueueTest {
 		
 		for (int i = 0; i < 16; i++) {// 取
 			new Thread(new Runnable() {
+				@Override
 				public void run() {
 					try { 
 						semaphore.acquire();

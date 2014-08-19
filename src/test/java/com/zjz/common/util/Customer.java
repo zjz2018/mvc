@@ -4,6 +4,7 @@ public class Customer implements Runnable {
 	private String name;
 	private Product product;
 
+	@Override
 	public void run() {
 		product.take();
 	}

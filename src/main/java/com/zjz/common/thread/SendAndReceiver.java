@@ -1,11 +1,12 @@
-package com.zjz.basic.thread;
+package com.zjz.common.thread;
 
 import java.util.concurrent.Exchanger;
 
 public class SendAndReceiver{
    private final Exchanger<StringBuilder> exchanger = new Exchanger<StringBuilder>();
    private class Sender implements Runnable{
-      public void run(){
+      @Override
+	public void run(){
          try{
             StringBuilder content = new StringBuilder("Hello");
             content = exchanger.exchange(content);
@@ -15,7 +16,8 @@ public class SendAndReceiver{
       }
    }
    private class Receiver implements Runnable{
-      public void run(){
+      @Override
+	public void run(){
          try{
             StringBuilder content = new StringBuilder("World");
             content = exchanger.exchange(content);

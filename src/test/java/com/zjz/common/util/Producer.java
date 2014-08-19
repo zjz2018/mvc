@@ -10,6 +10,7 @@ public class Producer implements Runnable {
 		this.product = product;
 	}
 
+	@Override
 	public void run() {
 		synchronized (product) {
 			for (int i = 0; i < 10; i++) {
