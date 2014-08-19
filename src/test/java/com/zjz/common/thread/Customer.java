@@ -1,4 +1,5 @@
-package com.zjz.common.util;
+package com.zjz.common.thread;
+
 
 public class Customer implements Runnable {
 	private String name;

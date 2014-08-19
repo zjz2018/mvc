@@ -1,4 +1,4 @@
-package com.zjz.common.util;
+package com.zjz.common.thread;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -197,7 +197,7 @@ public class TestCase {
 	@Test
 	@Ignore
 	public void testDeman() {
-		com.zjz.common.util.Product pd = new com.zjz.common.util.Product();
+		com.zjz.common.thread.Product pd = new com.zjz.common.thread.Product();
 		Producer p = new Producer("制造者", pd);
 		Customer ct = new Customer("消费者", pd);
 		Thread t1 = new Thread(p, p.getName());

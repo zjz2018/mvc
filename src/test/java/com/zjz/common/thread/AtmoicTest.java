@@ -1,4 +1,4 @@
-package com.zjz.common.util;
+package com.zjz.common.thread;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

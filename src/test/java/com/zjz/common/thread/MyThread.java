@@ -1,4 +1,4 @@
-package com.zjz.common.util;
+package com.zjz.common.thread;
 
 public class MyThread implements Runnable {
 	private byte[] lock = new byte[0];

@@ -1,4 +1,4 @@
-package com.zjz.common.basic;
+package com.zjz.common.util;
 
 /**
  * 继承类测试
